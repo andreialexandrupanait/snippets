@@ -1,0 +1,8 @@
+function show_regularsale_price_at_cart( $old_display, $cart_item, $cart_item_key ) {
+	$product = $cart_item['data'];
+	if ( $product ) {
+		return $product->get_price_html();
+	}
+	return $old_display;
+  }
+add_filter( 'woocommerce_cart_item_price', 'show_regularsale_price_at_cart', 10, 3 );
